@@ -6,9 +6,9 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
     console.log("Making a GET request");
-    // Client.find()
-    //   .then(clients => res.status(200).json(clients))
-    //   .catch(err => console.log(err));
+    Client.find()
+      .then(clients => res.status(200).json(clients))
+      .catch(err => console.log(err));
   });
   
   router.post("/", jsonParser, (req, res) => {
