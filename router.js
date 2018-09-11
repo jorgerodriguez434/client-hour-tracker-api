@@ -28,7 +28,7 @@ router.get("/", (req, res) => {
     Client.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      hours: 0
+      hours: "0"
     })
       .then(client => {
         console.log(client);
@@ -49,4 +49,26 @@ router.get("/", (req, res) => {
       .catch(err => console.log(err));
   });
   
+  router.put("/:id", jsonParser, (req, res) => {
+  console.log("Making a PUT request");
+  const id = req.params.id;
+  Client.findByIdAndUpdate(
+    id,
+    {
+      $set: {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        hours: req.body.hours
+      }
+    },
+    { upsert: true, new: true }
+  )
+    .then(client => {
+      //console.log(dish);
+      res.json({
+        client
+      });
+    })
+    .catch(err => console.log(err));
+});
   module.exports = router;
