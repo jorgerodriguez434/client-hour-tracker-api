@@ -38,5 +38,15 @@ router.get("/", (req, res) => {
       })
       .catch(err => console.log(err));
   });
+
+  router.delete("/:id", (req, res) => {
+    console.log("Making a DELETE request");
+    Client.findByIdAndRemove(req.params.id)
+      .then(() => {
+        res.json({ message: `Client has been deleted` });
+        res.status(200).end();
+      })
+      .catch(err => console.log(err));
+  });
   
   module.exports = router;
