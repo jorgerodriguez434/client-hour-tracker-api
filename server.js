@@ -22,9 +22,10 @@ app.use(
 
 app.use(morgan("common"));
 app.use('/api/clients', router);
+app.use(express.static('public'));
 
 app.use("*", (req, res) => {
-  return res.status(404).json({ message: "file not found", code: 404 });
+  return res.status(404).json({ message: "route not found", code: 404 });
 });
 
 let server;
