@@ -28,7 +28,7 @@ router.get("/", (req, res) => {
     Client.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      hours: "0"
+      hours: 0
     })
       .then(client => {
         console.log(client);
@@ -58,7 +58,7 @@ router.get("/", (req, res) => {
       $set: {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        hours: req.body.hours
+        hours: req.body.hours,
       }
     },
     { upsert: true, new: true }

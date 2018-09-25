@@ -4,7 +4,7 @@ const ClientSchema = mongoose.Schema({
 
   firstName: String,
   lastName: String,
-  hours: String,
+  hours: Number,
   created: {type: Date, default: Date.now}
 
 });
