@@ -10,6 +10,7 @@ const ClientSchema = mongoose.Schema({
     //hours: Number,
     description: String
   },
+  cases: Array,
   created: {type: Date, default: Date.now}
 
 });

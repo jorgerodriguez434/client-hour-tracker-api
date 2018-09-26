@@ -32,7 +32,9 @@ router.get("/", (req, res) => {
       case: {
           description: req.body.case.description,
           name: req.body.case.name
-      }
+      },
+      cases: [{description: req.body.case.description,
+        name: req.body.case.name}]
     })
       .then(client => {
         console.log(client);
