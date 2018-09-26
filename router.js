@@ -33,8 +33,7 @@ router.get("/", (req, res) => {
           description: req.body.case.description,
           name: req.body.case.name
       },
-      cases: [{description: req.body.case.description,
-        name: req.body.case.name}]
+      cases: req.body.case
     })
       .then(client => {
         console.log(client);
