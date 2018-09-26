@@ -28,7 +28,11 @@ router.get("/", (req, res) => {
     Client.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      hours: 0
+      hours: 0,
+      case: {
+          description: req.body.case.description,
+          name: req.body.case.name
+      }
     })
       .then(client => {
         console.log(client);
